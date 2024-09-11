@@ -14,5 +14,8 @@ export const TwitterContext = createContext({
     },
     changeName: function (name) {
         console.log(name);
+    },
+    changeStat: function (prop, delta) {
+        console.log(prop, delta);
     }
 });

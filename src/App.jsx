@@ -23,10 +23,15 @@ function App() {
     setUser(prevState => ({ ...prevState, name: name || prevState.name }))
   }
 
+  const changeStat = (prop, delta) => {
+    setStats(prevState => {
+      return { ...prevState, [prop]: Math.max((prevState[prop] + delta), 0) };
+    });
+  };
   return (
     <div className='app'>
       <TwitterContext.Provider value={{
-        user, stats, changeAvatar, changeName
+        user, stats, changeAvatar, changeName, changeStat
       }}>
         <Navigation />
         <Body />
